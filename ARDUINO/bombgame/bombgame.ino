@@ -1,4 +1,12 @@
-#define READ_PIN 11
+#define RED_WIRE A0
+#define GREEN_WIRE A1
+#define BLUE_WIRE A2
+
+#define SLOT_0_VALUE 40
+#define SLOT_1_VALUE 225
+#define SLOT_2_VALUE 20
+
+#define ROUNDFACTOR 5
 
 void setup() {
   Serial.begin(9600);
@@ -6,19 +14,51 @@ void setup() {
 
   pinMode(13, OUTPUT);
 
-  pinMode(READ_PIN, INPUT);
-  digitalWrite(READ_PIN, HIGH);
+  pinMode(RED_WIRE, INPUT);
+  pinMode(GREEN_WIRE, INPUT);
+  pinMode(BLUE_WIRE, INPUT);
+
+  digitalWrite(RED_WIRE, HIGH);
+  digitalWrite(GREEN_WIRE, HIGH);
+  digitalWrite(BLUE_WIRE, HIGH);
+}
+
+int roundVal(int value) {
+  int remainder = value % ROUNDFACTOR;
+
+  if (remainder < 3)
+    value -= remainder;
+  else
+    value += ROUNDFACTOR - remainder;
+
+  return value;
+}
+
+int getSlotNumber(int voltage) {
+  switch (voltage) {
+    case SLOT_0_VALUE:
+      return 0;
+
+    case SLOT_1_VALUE:
+      return 1;
+
+    case SLOT_2_VALUE:
+      return 2;
+  }
+
+  return -1;
 }
 
 void loop() {
-  int v = digitalRead(READ_PIN);
-  digitalWrite(13, v);
+  int red_wire = analogRead(RED_WIRE);
+  int green_wire = analogRead(GREEN_WIRE);
+  int blue_wire = analogRead(BLUE_WIRE);
 
-  if (v == LOW)
-  {
-    Serial.println("Connected");
-  }
-  else{
-    Serial.println("Not connected");
-  }
+  red_wire = roundVal(red_wire);
+  green_wire = roundVal(green_wire);
+  blue_wire = roundVal(blue_wire);
+
+  int i = getSlotNumber(red_wire);
+
+  Serial.println(i);
 }
