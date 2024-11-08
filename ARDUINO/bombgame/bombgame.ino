@@ -58,7 +58,19 @@ void loop() {
   green_wire = roundVal(green_wire);
   blue_wire = roundVal(blue_wire);
 
-  int i = getSlotNumber(red_wire);
+  red_wire = getSlotNumber(red_wire);
+  green_wire = getSlotNumber(green_wire);
+  blue_wire = getSlotNumber(blue_wire);
 
-  Serial.println(i);
+  // Serial.write((uint8_t)233);
+  // Serial.write((uint8_t)red_wire);
+  // Serial.write((uint8_t)green_wire);
+  // Serial.write((uint8_t)blue_wire);
+
+  Serial.println("");
+  Serial.println(red_wire);
+  Serial.println(green_wire);
+  Serial.println(blue_wire);
+
+  delay(1000);
 }
