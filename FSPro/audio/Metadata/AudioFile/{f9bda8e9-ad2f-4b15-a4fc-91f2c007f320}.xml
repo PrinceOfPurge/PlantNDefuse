@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f9bda8e9-ad2f-4b15-a4fc-91f2c007f320}">
+		<property name="assetPath">
+			<value>381_Halfling_Sneak.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>600.0587755102041</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ff7c3cd3-ea04-4c1c-be73-0fa75c410d51}</destination>
+		</relationship>
+	</object>
+</objects>

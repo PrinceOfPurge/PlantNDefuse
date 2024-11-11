@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
-//        playerFootsteps = AudioManager.instance.CreateInstance(FMODEvents.instance.playerFootsteps);
+        playerFootsteps = AudioManager.instance.CreateInstance(FMODEvents.instance.playerFootsteps);
     }
 
     private void Update()
