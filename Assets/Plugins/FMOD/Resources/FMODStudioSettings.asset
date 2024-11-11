@@ -562,7 +562,6 @@ MonoBehaviour:
   - Master
   Banks:
   - Ambience
-  - Bank A
   - Music
   - SFX
   BanksToLoad: []

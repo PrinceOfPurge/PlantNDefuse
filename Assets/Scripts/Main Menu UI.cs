@@ -18,7 +18,7 @@ public class MainMenuUI : MonoBehaviour
 
     void OnPlayButtonClick()
     {
-        SceneManager.LoadScene("AudioLoadScreen");
+        SceneManager.LoadScene("Level1");
     }
 
     void OnQuitButtonClick()
