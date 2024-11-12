@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 5d7957d510d7b4b49b9d4ef70b039b77
+  - enabled: 1
+    path: Assets/Scenes/BombTest.unity
+    guid: 1da424e07289e1348a6e41672b7c31c2
   m_configObjects: {}
