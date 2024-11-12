@@ -20,6 +20,8 @@ public class WireReader : MonoBehaviour
 	public readonly WireColor[] slots = new WireColor[3];
 	[SerializeField] Image[] debug_wirePreviews;
 
+	public bool DisableUpdate;
+
 	void Start()
 	{
 		UpdateDisplay();
@@ -27,6 +29,8 @@ public class WireReader : MonoBehaviour
 
 	void Update()
 	{
+		if (DisableUpdate) return;
+
 		// Select wire
 		if (Input.GetKeyDown(KeyCode.R))
 		{

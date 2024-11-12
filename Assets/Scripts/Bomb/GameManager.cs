@@ -61,10 +61,12 @@ public class GameManager : MonoBehaviour
 	IEnumerator NextLevelTransition()
 	{
 		m_bLevelOver = true;
+		m_reader.DisableUpdate = true;
 
 		yield return new WaitForSeconds(2);
 
 		NextLevel();
+		m_reader.DisableUpdate = false;
 	}
 
 	IEnumerator LoseTransition()
