@@ -828,6 +828,7 @@ MonoBehaviour:
   - {fileID: 467403529}
   - {fileID: 1039698161}
   - {fileID: 1111300533}
+  DisableUpdate: 0
 --- !u!4 &874889996
 Transform:
   m_ObjectHideFlags: 0
