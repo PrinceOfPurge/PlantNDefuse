@@ -910,7 +910,7 @@ Transform:
   m_GameObject: {fileID: 947574653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.32, y: 33.5, z: 13.05}
+  m_LocalPosition: {x: -6.73, y: 0.12, z: 13.05}
   m_LocalScale: {x: 0.76, y: 0.76, z: 0.76}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1477,7 +1477,7 @@ MonoBehaviour:
       Data2: 1308431742
       Data3: -269529677
       Data4: 1124310312
-    Path: event:/Music/Level1
+    Path: event:/Music/Menu
   <playerFootsteps>k__BackingField:
     Guid:
       Data1: -1929175772
@@ -1487,18 +1487,18 @@ MonoBehaviour:
     Path: event:/SFX/Player/PlayerFootsteps
   <FasterBomb>k__BackingField:
     Guid:
-      Data1: -607012246
-      Data2: 1146433309
-      Data3: -1578867318
-      Data4: -1643639733
-    Path: event:/SFX/Bomb/Faster Bomb Ticking
+      Data1: 1142604725
+      Data2: 1172693559
+      Data3: 1711729823
+      Data4: -51252147
+    Path: event:/SFX/Bomb/Fast Bomb Ticking
   <BombTicking>k__BackingField:
     Guid:
-      Data1: -308233463
-      Data2: 1142166131
-      Data3: 574823840
-      Data4: 527847627
-    Path: event:/SFX/Bomb/Bomb Ticking
+      Data1: 2101493870
+      Data2: 1098067593
+      Data3: 784095381
+      Data4: -673537470
+    Path: event:/SFX/Bomb/BombTicking
   <BombExplosion>k__BackingField:
     Guid:
       Data1: -1475587024
@@ -1506,6 +1506,20 @@ MonoBehaviour:
       Data3: -1841081216
       Data4: 587440800
     Path: event:/SFX/Bomb/Bomb Explosion
+  <DogWhine>k__BackingField:
+    Guid:
+      Data1: 1106764115
+      Data2: 1239937559
+      Data3: 264251020
+      Data4: -430231733
+    Path: event:/Ambience/Dog Whines/Variety Of Whines
+  <Wire>k__BackingField:
+    Guid:
+      Data1: -1207803937
+      Data2: 1210249390
+      Data3: 586797218
+      Data4: 768593642
+    Path: event:/SFX/Bomb/Wire
 --- !u!1 &1555781767
 GameObject:
   m_ObjectHideFlags: 0

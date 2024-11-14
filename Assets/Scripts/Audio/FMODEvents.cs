@@ -20,6 +20,12 @@ public class FMODEvents : MonoBehaviour
     [field: Header("BombExplosion")]
     [field: SerializeField] public EventReference BombExplosion { get; private set; }
     
+    [field: Header("Dog Whines")]
+    [field: SerializeField] public EventReference DogWhine { get; private set; }
+    
+    [field: Header("Wire")]
+    [field: SerializeField] public EventReference Wire { get; private set; }
+    
     public static FMODEvents instance { get; private set; }
 
     private void Awake()
