@@ -3006,6 +3006,7 @@ MonoBehaviour:
   m_timerTextL: {fileID: 1107062256}
   m_timerTextR: {fileID: 1401494346}
   m_loseUI: {fileID: 1798208855}
+  m_WinUI: {fileID: 1786874553}
   m_Leds:
   - {fileID: 815386956}
   - {fileID: 1354634534}

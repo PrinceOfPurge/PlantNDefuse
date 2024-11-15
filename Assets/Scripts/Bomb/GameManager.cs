@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
 
 	float GetTimeForLevel(int level)
 	{
-		return (int)Mathf.Max(5, -0.01f * Mathf.Pow(level, 3) + 30.0f);
+		return -3 * level + 35;
 	}
 
 	void ResetTimer()
