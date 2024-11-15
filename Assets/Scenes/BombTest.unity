@@ -2865,6 +2865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa7fe0d3ec6dc74b89a30d715c0b76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_StartDelay: 3
   m_reader: {fileID: 1092212270}
   m_levelText: {fileID: 1560755096}
   m_timerTextL: {fileID: 1107062256}

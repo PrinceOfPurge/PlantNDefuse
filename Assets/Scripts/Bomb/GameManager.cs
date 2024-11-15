@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+	[SerializeField] float m_StartDelay;
+	
 	[SerializeField] WireReader m_reader;
 	[SerializeField] TMP_Text m_levelText;
 	[SerializeField] TMP_Text m_timerTextL;
@@ -26,6 +28,15 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		m_bLevelOver = true;
+
+		StartCoroutine(StartDelay());
+	}
+
+	IEnumerator StartDelay()
+	{
+		yield return new WaitForSeconds(m_StartDelay);
+
+		StartGame();
 	}
 
 	public void StartGame()
