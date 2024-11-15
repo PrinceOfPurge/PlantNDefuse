@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO.Ports;
+using Unity.VisualScripting;
 
 public enum WireColor
 {
@@ -21,11 +22,18 @@ public class WireReader : MonoBehaviour
 
 	private readonly SerialPort data_stream = new("COM3", 9600);
 
+	[SerializeField] SkinnedMeshRenderer[] m_Wires;
+
 	void Start()
 	{
 		UpdateDisplay();
 
 		data_stream.Open();
+	}
+
+	void OnDestroy()
+	{
+		data_stream.Close();
 	}
 
 	void Update()
@@ -40,10 +48,16 @@ public class WireReader : MonoBehaviour
 
 	void UpdateDisplay()
 	{
-		// for (int i = 0; i < debug_wirePreviews.Length; ++i)
-		// {
-		// 	debug_wirePreviews[i].color = GetWireColor(slots[i]);
-		// }
+		for (int i = 0; i < m_Wires.Length; ++i)
+		{
+			if (!m_Wires[i]) continue;
+
+			int slot = GetSlotOfWire((WireColor)i + 1);
+
+			m_Wires[i].SetBlendShapeWeight(0, slot == 1 ? 100 : 0);
+			m_Wires[i].SetBlendShapeWeight(1, slot == 2 ? 100 : 0);
+			m_Wires[i].SetBlendShapeWeight(2, slot == -1 ? 100 : 0);
+		}
 	}
 
 	public static Color GetWireColor(WireColor wire)
@@ -55,6 +69,19 @@ public class WireReader : MonoBehaviour
 			WireColor.Blue => Color.blue * 3,
 			_ => Color.black,
 		};
+	}
+
+	int GetSlotOfWire(WireColor wire)
+	{
+		for (int i = 0; i < slots.Length; ++i)
+		{
+			if (slots[i] == wire)
+			{
+				return i;
+			}
+		}
+
+		return -1;
 	}
 
 	#region Arduino

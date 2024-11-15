@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
 	bool m_bLevelOver = false;
 
+	[SerializeField] int m_MaxLevel = 50;
+
 	void Start()
 	{
 		NextLevel();
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
 	IEnumerator LoseTransition()
 	{
 		m_bLevelOver = true;
+		m_reader.DisableUpdate = true;
 
 		yield return new WaitForSeconds(2);
 
@@ -178,10 +181,16 @@ public class GameManager : MonoBehaviour
 	void NextLevel()
 	{
 		++m_level;
-		m_levelText.text = $"<mspace=0.5em>{m_level:00}";
+		m_levelText.text = $"<mspace=0.5em>{m_MaxLevel - m_level + 1:00}";
 
-		CreateRandomConfig();
+		if (m_level > m_MaxLevel + 1)
+		{
+			Debug.Log("WIN!");
+			return;
+		}
+
 		ResetTimer();
+		CreateRandomConfig();
 		m_bLevelOver = false;
 
 		UpdatePreview();
