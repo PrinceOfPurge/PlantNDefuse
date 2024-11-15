@@ -8,11 +8,12 @@ public class GameManager : MonoBehaviour
 {
 	[SerializeField] WireReader m_reader;
 	[SerializeField] TMP_Text m_levelText;
-	[SerializeField] TMP_Text m_timerText;
+	[SerializeField] TMP_Text m_timerTextL;
+	[SerializeField] TMP_Text m_timerTextR;
 
 	[SerializeField] GameObject m_loseUI;
 
-	[SerializeField] Image[] debug_testImages;
+	[SerializeField] MeshRenderer[] m_Leds;
 	readonly WireColor[] goalSlots = new WireColor[3];
 
 	float m_timer;
@@ -154,13 +155,14 @@ public class GameManager : MonoBehaviour
 	{
 		for (int i = 0; i < goalSlots.Length; ++i)
 		{
-			debug_testImages[i].color = WireReader.GetWireColor(goalSlots[i]);
+			m_Leds[i].material.SetColor("_EmissionColor", WireReader.GetWireColor(goalSlots[i]));
 		}
 	}
 
 	void UpdateTimerText()
 	{
-		m_timerText.text = $"{(int)m_timer:00}:{(int)(m_timer % 1 * 100):00}";
+		m_timerTextL.text = $"<mspace=0.5em>{(int)m_timer:00}";
+		m_timerTextR.text = $"<mspace=0.5em>{(int)(m_timer % 1 * 100):00}";
 	}
 
 	float GetTimeForLevel(int level)
@@ -176,7 +178,7 @@ public class GameManager : MonoBehaviour
 	void NextLevel()
 	{
 		++m_level;
-		m_levelText.text = $"Level: {m_level}";
+		m_levelText.text = $"<mspace=0.5em>{m_level:00}";
 
 		CreateRandomConfig();
 		ResetTimer();
