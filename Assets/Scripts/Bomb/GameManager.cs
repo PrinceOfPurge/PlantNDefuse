@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] TMP_Text m_timerTextR;
 
 	[SerializeField] GameObject m_loseUI;
+	[SerializeField] GameObject m_WinUI;
 
 	[SerializeField] MeshRenderer[] m_Leds;
 	readonly WireColor[] goalSlots = new WireColor[3];
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		m_bLevelOver = true;
+		m_WinUI.SetActive(false);
 
 		StartCoroutine(StartDelay());
 	}
@@ -204,6 +206,7 @@ public class GameManager : MonoBehaviour
 		if (m_level > m_MaxLevel + 1)
 		{
 			Debug.Log("WIN!");
+			m_WinUI.SetActive(true);
 			return;
 		}
 
