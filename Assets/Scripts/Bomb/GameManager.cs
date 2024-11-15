@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame()
 	{
-		m_bLevelOver = false;
 		NextLevel();
 		m_loseUI.SetActive(false);
 		AudioManager.instance.PlayOneShot(FMODEvents.instance.BombTicking, this.transform.position);
