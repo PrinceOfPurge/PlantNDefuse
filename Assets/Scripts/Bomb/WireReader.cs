@@ -70,6 +70,8 @@ public class WireReader : MonoBehaviour
 			}
 		}
 
+		if (data_stream.BytesToRead == 0) return;
+
 		// Read until start byte
 		for (int counter = 0; counter <= 100 && data_stream.ReadByte() != 233; ++counter)
 		{
