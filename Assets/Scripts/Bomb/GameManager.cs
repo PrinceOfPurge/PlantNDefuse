@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 	{
 		NextLevel();
 		m_loseUI.SetActive(false);
+		AudioManager.instance.PlayOneShot(FMODEvents.instance.BombTicking, this.transform.position);
 	}
 
 	void Update()
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
 		if (m_timer <= 0)
 		{
 			StartCoroutine(LoseTransition());
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.BombExplosion, this.transform.position);
 			return;
 		}
 	}

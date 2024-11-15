@@ -175,32 +175,38 @@ public class WireReader : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			debug_grabbedWire = WireColor.Red;
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.Wire, this.transform.position);
 		}
 
 		if (Input.GetKeyDown(KeyCode.G))
 		{
 			debug_grabbedWire = WireColor.Green;
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.Wire, this.transform.position);
 		}
 
 		if (Input.GetKeyDown(KeyCode.B))
 		{
 			debug_grabbedWire = WireColor.Blue;
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.Wire, this.transform.position);
 		}
 
 		// Connect selected wire to slot
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
 			debug_ConnectWire(debug_grabbedWire, 0);
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.Wire, this.transform.position);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
 			debug_ConnectWire(debug_grabbedWire, 1);
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.Wire, this.transform.position);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
 			debug_ConnectWire(debug_grabbedWire, 2);
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.Wire, this.transform.position);
 		}
 
 	}

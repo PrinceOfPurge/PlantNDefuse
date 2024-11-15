@@ -18,7 +18,7 @@ public class MainMenuUI : MonoBehaviour
 
     void OnPlayButtonClick()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("BombTest");
     }
 
     void OnQuitButtonClick()
