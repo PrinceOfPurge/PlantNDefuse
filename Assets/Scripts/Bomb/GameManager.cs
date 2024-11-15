@@ -8,17 +8,20 @@ public class GameManager : MonoBehaviour
 {
 	[SerializeField] WireReader m_reader;
 	[SerializeField] TMP_Text m_levelText;
-	[SerializeField] TMP_Text m_timerText;
+	[SerializeField] TMP_Text m_timerTextL;
+	[SerializeField] TMP_Text m_timerTextR;
 
 	[SerializeField] GameObject m_loseUI;
 
-	[SerializeField] Image[] debug_testImages;
+	[SerializeField] MeshRenderer[] m_Leds;
 	readonly WireColor[] goalSlots = new WireColor[3];
 
 	float m_timer;
 	int m_level = 0;
 
 	bool m_bLevelOver = false;
+
+	[SerializeField] int m_MaxLevel = 50;
 
 	void Start()
 	{
@@ -72,6 +75,7 @@ public class GameManager : MonoBehaviour
 	IEnumerator LoseTransition()
 	{
 		m_bLevelOver = true;
+		m_reader.DisableUpdate = true;
 
 		yield return new WaitForSeconds(2);
 
@@ -154,13 +158,14 @@ public class GameManager : MonoBehaviour
 	{
 		for (int i = 0; i < goalSlots.Length; ++i)
 		{
-			debug_testImages[i].color = WireReader.GetWireColor(goalSlots[i]);
+			m_Leds[i].material.SetColor("_EmissionColor", WireReader.GetWireColor(goalSlots[i]));
 		}
 	}
 
 	void UpdateTimerText()
 	{
-		m_timerText.text = $"{(int)m_timer:00}:{(int)(m_timer % 1 * 100):00}";
+		m_timerTextL.text = $"<mspace=0.5em>{(int)m_timer:00}";
+		m_timerTextR.text = $"<mspace=0.5em>{(int)(m_timer % 1 * 100):00}";
 	}
 
 	float GetTimeForLevel(int level)
@@ -176,10 +181,16 @@ public class GameManager : MonoBehaviour
 	void NextLevel()
 	{
 		++m_level;
-		m_levelText.text = $"Level: {m_level}";
+		m_levelText.text = $"<mspace=0.5em>{m_MaxLevel - m_level + 1:00}";
 
-		CreateRandomConfig();
+		if (m_level > m_MaxLevel + 1)
+		{
+			Debug.Log("WIN!");
+			return;
+		}
+
 		ResetTimer();
+		CreateRandomConfig();
 		m_bLevelOver = false;
 
 		UpdatePreview();
