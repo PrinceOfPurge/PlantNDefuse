@@ -126,19 +126,17 @@ public class WireReader : MonoBehaviour
 
 			WireColor wireColor = (WireColor)(readingByte + 1);
 
+			// Disconnect all of this colour
+			for (int i = 0; i < slots.Length; ++i)
+			{
+				if (slots[i] == wireColor)
+				{
+					slots[i] = WireColor.None;
+				}
+			}
+
 			if (b == 255)
 			{
-				// This wire has been disconnected, find which slot it's in
-
-				for (int i = 0; i < slots.Length; ++i)
-				{
-					if (slots[i] == wireColor)
-					{
-						slots[i] = WireColor.None;
-						break;
-					}
-				}
-
 				continue;
 			}
 
@@ -204,7 +202,7 @@ public class WireReader : MonoBehaviour
 
 	}
 
-		void debug_ConnectWire(WireColor wire, int slotIndex)
+	void debug_ConnectWire(WireColor wire, int slotIndex)
 	{
 		// Clear any other instances of this wire
 		for (int i = 0; i < slots.Length; ++i)
