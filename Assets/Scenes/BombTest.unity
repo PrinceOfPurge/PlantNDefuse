@@ -1740,8 +1740,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisableUpdate: 0
   m_Wires:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1453692044}
+  - {fileID: 2017320303}
   - {fileID: 1560859414}
   debug_grabbedWire: 0
 --- !u!4 &874889996
@@ -2588,6 +2588,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!137 &1453692044 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1014180994509115751, guid: 54fca6934735a1944b10f18e22aac057, type: 3}
+  m_PrefabInstance: {fileID: 5014549436720319874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1489521682
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,6 +3177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!137 &2017320303 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3298800233277514681, guid: 54fca6934735a1944b10f18e22aac057, type: 3}
+  m_PrefabInstance: {fileID: 5014549436720319874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2093883799
 GameObject:
   m_ObjectHideFlags: 0
