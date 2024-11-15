@@ -28,12 +28,12 @@ public class WireReader : MonoBehaviour
 	{
 		UpdateDisplay();
 
-		data_stream.Open();
+		data_stream?.Open();
 	}
 
 	void OnDestroy()
 	{
-		data_stream.Close();
+		data_stream?.Close();
 	}
 
 	void Update()
@@ -89,6 +89,9 @@ public class WireReader : MonoBehaviour
 	int readingByte = -1;
 	void ReadFromArduino()
 	{
+		if (!data_stream.IsOpen)
+			return;
+
 		if (readingByte != -1)
 		{
 			if (!ReadUntilDone())
