@@ -3007,6 +3007,8 @@ MonoBehaviour:
   m_timerTextR: {fileID: 1401494346}
   m_loseUI: {fileID: 1798208855}
   m_WinUI: {fileID: 1786874553}
+  m_MainCamera: {fileID: 963194227}
+  m_CameraStartPos: {x: 0, y: 0, z: 0}
   m_Leds:
   - {fileID: 815386956}
   - {fileID: 1354634534}
@@ -4407,7 +4409,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 93bd9a993fbcdf443b431a13c0c57c71, type: 2}
   m_InitialState: 1
-  m_WrapMode: 0
+  m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:

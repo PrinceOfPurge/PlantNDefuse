@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
 	[SerializeField] GameObject m_loseUI;
 	[SerializeField] GameObject m_WinUI;
 
+	[SerializeField] Camera m_MainCamera;
+	[SerializeField] Vector3 m_CameraStartPos;
+
 	[SerializeField] MeshRenderer[] m_Leds;
 	readonly WireColor[] goalSlots = new WireColor[3];
 
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
 	{
 		m_bLevelOver = true;
 		m_WinUI.SetActive(false);
+		m_CameraStartPos = m_MainCamera.transform.position;
 
 		StartCoroutine(StartDelay());
 	}
@@ -54,6 +58,8 @@ public class GameManager : MonoBehaviour
 
 		UpdateTimerText();
 		m_timer -= Time.deltaTime;
+
+		UpdateCamera();
 
 		// Check for match
 		bool win = true;
@@ -215,5 +221,14 @@ public class GameManager : MonoBehaviour
 		m_bLevelOver = false;
 
 		UpdatePreview();
+	}
+
+	void UpdateCamera()
+	{
+		Vector3 moveDir = -m_MainCamera.transform.forward;
+
+		float dist = 1 / (2 * Mathf.Tan(0.5f * m_MainCamera.fieldOfView));
+
+		m_MainCamera.transform.position = m_CameraStartPos + moveDir * dist;
 	}
 }
