@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour
 		++m_level;
 		m_levelText.text = $"<mspace=0.5em>{m_MaxLevel - m_level + 1:00}";
 
-		if (m_level > m_MaxLevel + 1)
+		if (m_level > m_MaxLevel)
 		{
 			Debug.Log("WIN!");
 			m_WinUI.SetActive(true);

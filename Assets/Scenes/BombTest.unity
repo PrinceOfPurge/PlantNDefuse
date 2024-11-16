@@ -3013,7 +3013,7 @@ MonoBehaviour:
   - {fileID: 815386956}
   - {fileID: 1354634534}
   - {fileID: 491048123}
-  m_MaxLevel: 25
+  m_MaxLevel: 10
 --- !u!1 &1099228005
 GameObject:
   m_ObjectHideFlags: 0
